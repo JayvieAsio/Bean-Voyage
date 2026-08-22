@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page setup and local stylesheet. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | Bean Voyage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Shared navigation connects all pages in the website. -->
+    <header class="site-header">
+        <a class="logo" href="../HomeInterface/index2.html">Bean <span>Voyage</span></a>
+        <nav aria-label="Main navigation">
+            <a href="../HomeInterface/index2.html">Home</a>
+            <a href="../AboutUs/index4.html">About Us</a>
+            <a class="active" href="index3.html">Reviews</a>
+            <a href="../LoginInterface/index.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <!-- Customer feedback section. -->
+        <section class="reviews-hero"><p class="eyebrow">Words from our table</p><h1>Good coffee is<br><em>better together.</em></h1><p>See what fellow travelers are saying about their Bean Voyage moments.</p></section>
+        <section class="reviews-grid"><article class="review-card"><div class="stars">★★★★★</div><blockquote>“The honey cinnamon latte is the perfect balance of cozy and bright. I come in for one and stay for three chapters.”</blockquote><p class="reviewer">Maya R. <span>• Regular traveler</span></p></article><article class="review-card featured"><div class="stars">★★★★★</div><blockquote>“Beautiful coffee, kind people, and the kind of room that makes you forget to check the time.”</blockquote><p class="reviewer">Jon Bell <span>• Weekend visitor</span></p></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“The cold brew is smooth, the pastries are excellent, and the staff remembers my order. That is everything.”</blockquote><p class="reviewer">Ana K. <span>• Morning regular</span></p></article></section>
+        <section class="review-cta"><h2>Have a Bean Voyage story?</h2><button id="shareReview">Share your feedback <span>→</span></button><p id="feedbackStatus" role="status" aria-live="polite"></p></section>
+    </main>
+    <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
+    <script src="script.js"></script>
+</body>
+</html>

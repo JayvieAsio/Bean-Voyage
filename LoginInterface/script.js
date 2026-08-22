@@ -57,7 +57,7 @@ togglePassword.addEventListener("click", () => {
   togglePassword.setAttribute("title", isPassword ? "Hide password" : "Show password");
 });
 
-// Pinipigilan ang page reload at ipinapakita ang demo sign-in result.
+// Pinipigilan ang page reload, saka dinadala ang user sa Home page.
 loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
   if (!validateForm()) return;
@@ -70,6 +70,7 @@ loginForm.addEventListener("submit", (event) => {
     submitButton.disabled = false;
     submitButton.querySelector("span").textContent = "Sign in";
     formStatus.textContent = `Welcome back, ${emailInput.value.trim()}!`;
+    window.location.href = "../HomeInterface/index2.html";
   }, 700);
 });
 

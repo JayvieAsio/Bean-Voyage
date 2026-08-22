@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Page setup and local stylesheet. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Bean Voyage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared navigation connects all pages in the website. -->
+  <header class="site-header">
+    <a class="logo" href="index2.html">Bean <span>Voyage</span></a>
+    <nav aria-label="Main navigation">
+      <a class="active" href="index2.html">Home</a>
+      <a href="../AboutUs/index4.html">About Us</a>
+      <a href="../Feedback/index3.html">Reviews</a>
+      <a href="../LoginInterface/index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Main welcome message for the coffee shop. -->
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Your daily cup, thoughtfully made</p>
+        <h1>Take a little<br><em>voyage.</em></h1>
+        <p>Small-batch coffee, warm pastries, and a place to slow down. Find your next favorite cup at Bean Voyage.</p>
+        <a class="button" href="#menu">Explore the menu <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a cup of coffee">
+        <div class="sun"></div>
+        <div class="cup"><div class="coffee"></div><div class="cup-handle"></div></div>
+        <div class="steam steam-one"></div><div class="steam steam-two"></div>
+      </div>
+    </section>
+
+    <!-- Featured products and ordering controls. -->
+    <section class="menu-section" id="menu">
+      <div class="section-heading"><div><p class="eyebrow">Made for the moment</p><h2>Featured coffee</h2></div><p>Freshly roasted. Carefully poured.</p></div>
+      <div class="product-grid">
+        <article class="product-card"><div class="product-image latte"><span>☕</span></div><div class="product-info"><h3>Honey Cinnamon Latte</h3><p>Espresso, steamed milk, honey</p><div><strong>$5.50</strong><button class="add-button" data-product="Honey Cinnamon Latte">Add to cart</button></div></div></article>
+        <article class="product-card"><div class="product-image mocha"><span>☕</span></div><div class="product-info"><h3>Voyager Mocha</h3><p>Dark chocolate, espresso, oat milk</p><div><strong>$5.75</strong><button class="add-button" data-product="Voyager Mocha">Add to cart</button></div></div></article>
+        <article class="product-card"><div class="product-image cold"><span>☕</span></div><div class="product-info"><h3>Coastal Cold Brew</h3><p>Slow-steeped, smooth, refreshing</p><div><strong>$4.95</strong><button class="add-button" data-product="Coastal Cold Brew">Add to cart</button></div></div></article>
+      </div>
+      <p class="cart-status" id="cartStatus" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+  <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
