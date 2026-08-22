@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Basic page information and responsive settings. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sign in to your Roast & Bloom coffee account.">
-  <title>Sign In | Roast & Bloom</title>
+  <meta name="description" content="Sign in to your Bean Voyage coffee account.">
+  <title>Sign In | Bean Voyage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Connects the page to the external CSS file. -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Main wrapper for the branding area and login form. -->
   <main class="login-page">
-    <section class="brand-panel" aria-label="Roast and Bloom Coffee">
+    <!-- Left panel that shows the coffee shop branding. -->
+    <section class="brand-panel" aria-label="Bean Voyage Coffee">
       <div class="brand-panel__topline"><span class="bean-icon" aria-hidden="true">●</span> Small batch coffee house</div>
       <div class="brand-panel__content">
-        <div class="brand-mark" aria-hidden="true"><span>R</span><i></i><span>B</span></div>
+        <div class="brand-mark" aria-hidden="true"><span>B</span><i></i><span>V</span></div>
         <p class="eyebrow">Welcome back</p>
         <h1>Good coffee<br><em>starts here.</em></h1>
         <p class="brand-panel__copy">Your favorite table, your usual order, and a little more warmth in every cup.</p>
@@ -27,22 +31,26 @@
       <div class="brand-panel__footer"><span>Est. 2016</span><span>•</span><span>Portland, OR</span></div>
     </section>
 
+    <!-- Right panel that contains the login controls. -->
     <section class="form-panel">
       <div class="form-wrap">
-        <div class="mobile-logo"><span class="bean-icon" aria-hidden="true">●</span> Roast &amp; Bloom</div>
+        <div class="mobile-logo"><span class="bean-icon" aria-hidden="true">●</span> Bean Voyage</div>
         <div class="form-heading">
           <p class="eyebrow">Your daily ritual</p>
           <h2>Sign in to your account</h2>
           <p>Pick up where you left off.</p>
         </div>
 
+        <!-- novalidate lets JavaScript display the custom validation messages. -->
         <form id="loginForm" novalidate>
+          <!-- Email input and its error message. -->
           <div class="field-group">
             <label for="email">Email address</label>
             <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
             <span class="field-error" id="emailError" role="alert"></span>
           </div>
 
+          <!-- Password input, show-password button, and its error message. -->
           <div class="field-group">
             <div class="label-row">
               <label for="password">Password</label>
@@ -55,28 +63,32 @@
             <span class="field-error" id="passwordError" role="alert"></span>
           </div>
 
+          <!-- Optional setting that lets the user stay signed in. -->
           <label class="remember-row">
             <input type="checkbox" id="rememberMe" name="rememberMe">
             <span class="checkmark" aria-hidden="true"></span>
             <span>Keep me signed in</span>
           </label>
 
+          <!-- Main login button and status message. -->
           <button class="submit-button" type="submit">
             <span>Sign in</span><span class="arrow" aria-hidden="true">→</span>
           </button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
 
+        <!-- Alternative sign-in buttons. -->
         <div class="divider"><span>or continue with</span></div>
         <div class="social-buttons">
           <button class="social-button" type="button" data-provider="Google"><strong>G</strong><span>Google</span></button>
           <button class="social-button" type="button" data-provider="Apple"><strong class="apple-icon">●</strong><span>Apple</span></button>
         </div>
-        <p class="signup-text">New to Roast &amp; Bloom? <a href="#" id="createAccount">Create an account</a></p>
+        <p class="signup-text">New to Bean Voyage? <a href="#" id="createAccount">Create an account</a></p>
         <p class="legal">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
     </section>
   </main>
+  <!-- Loads the JavaScript after the page elements are available. -->
   <script src="script.js"></script>
 </body>
 </html>
