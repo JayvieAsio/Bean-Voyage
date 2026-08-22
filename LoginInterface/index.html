@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your Roast & Bloom coffee account.">
+  <title>Sign In | Roast & Bloom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-page">
+    <section class="brand-panel" aria-label="Roast and Bloom Coffee">
+      <div class="brand-panel__topline"><span class="bean-icon" aria-hidden="true">●</span> Small batch coffee house</div>
+      <div class="brand-panel__content">
+        <div class="brand-mark" aria-hidden="true"><span>R</span><i></i><span>B</span></div>
+        <p class="eyebrow">Welcome back</p>
+        <h1>Good coffee<br><em>starts here.</em></h1>
+        <p class="brand-panel__copy">Your favorite table, your usual order, and a little more warmth in every cup.</p>
+      </div>
+      <div class="quote">
+        <span class="quote__line"></span>
+        <p>“A quiet corner and a cup worth lingering over.”</p>
+      </div>
+      <div class="brand-panel__footer"><span>Est. 2016</span><span>•</span><span>Portland, OR</span></div>
+    </section>
+
+    <section class="form-panel">
+      <div class="form-wrap">
+        <div class="mobile-logo"><span class="bean-icon" aria-hidden="true">●</span> Roast &amp; Bloom</div>
+        <div class="form-heading">
+          <p class="eyebrow">Your daily ritual</p>
+          <h2>Sign in to your account</h2>
+          <p>Pick up where you left off.</p>
+        </div>
+
+        <form id="loginForm" novalidate>
+          <div class="field-group">
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+            <span class="field-error" id="emailError" role="alert"></span>
+          </div>
+
+          <div class="field-group">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a href="#" id="forgotPassword">Forgot password?</a>
+            </div>
+            <div class="password-wrap">
+              <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required>
+              <button class="icon-button" type="button" id="togglePassword" aria-label="Show password" title="Show password">◉</button>
+            </div>
+            <span class="field-error" id="passwordError" role="alert"></span>
+          </div>
+
+          <label class="remember-row">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <span class="checkmark" aria-hidden="true"></span>
+            <span>Keep me signed in</span>
+          </label>
+
+          <button class="submit-button" type="submit">
+            <span>Sign in</span><span class="arrow" aria-hidden="true">→</span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="divider"><span>or continue with</span></div>
+        <div class="social-buttons">
+          <button class="social-button" type="button" data-provider="Google"><strong>G</strong><span>Google</span></button>
+          <button class="social-button" type="button" data-provider="Apple"><strong class="apple-icon">●</strong><span>Apple</span></button>
+        </div>
+        <p class="signup-text">New to Roast &amp; Bloom? <a href="#" id="createAccount">Create an account</a></p>
+        <p class="legal">By continuing, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
