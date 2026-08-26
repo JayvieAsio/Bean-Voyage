@@ -21,10 +21,136 @@
     <main>
         <!-- Customer feedback section. -->
         <section class="reviews-hero"><p class="eyebrow">Words from our table</p><h1>Good coffee is<br><em>better together.</em></h1><p>See what fellow travelers are saying about their Bean Voyage moments.</p></section>
-        <section class="reviews-grid"><article class="review-card"><div class="stars">★★★★★</div><blockquote>“The honey cinnamon latte is the perfect balance of cozy and bright. I come in for one and stay for three chapters.”</blockquote><p class="reviewer">Maya R. <span>• Regular traveler</span></p></article><article class="review-card featured"><div class="stars">★★★★★</div><blockquote>“Beautiful coffee, kind people, and the kind of room that makes you forget to check the time.”</blockquote><p class="reviewer">Jon Bell <span>• Weekend visitor</span></p></article><article class="review-card"><div class="stars">★★★★★</div><blockquote>“The cold brew is smooth, the pastries are excellent, and the staff remembers my order. That is everything.”</blockquote><p class="reviewer">Ana K. <span>• Morning regular</span></p></article></section>
-        <section class="review-cta"><h2>Have a Bean Voyage story?</h2><button id="shareReview">Share your feedback <span>→</span></button><p id="feedbackStatus" role="status" aria-live="polite"></p></section>
+        
     </main>
     <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
-    <script src="script.js"></script>
+   <script src="javascript.js"></script>"
+
+
+    <section class="reviews-section">
+
+    <button class="review-arrow left-arrow" id="prevReview">
+        ‹
+    </button>
+
+    <div class="reviews-grid" id="reviewsGrid">
+
+        <!-- Review 1 -->
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text">
+                “The honey cinnamon latte is the perfect balance of
+                cozy and bright. I come in for one and stay for three
+                chapters.”
+            </p>
+
+            <p class="review-author">
+                <strong>Maya R.</strong> • Regular traveler
+            </p>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review featured-review">
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text">
+                “Beautiful coffee, kind people, and the kind of room
+                that makes you forget to check the time.”
+            </p>
+
+            <p class="review-author">
+                <strong>Jon Bell</strong> • Weekend visitor
+            </p>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text">
+                “The cold brew is smooth, the pastries are excellent,
+                and the staff remembers my order. That is everything.”
+            </p>
+
+            <p class="review-author">
+                <strong>Ana K.</strong> • Morning regular
+            </p>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text">
+                “Such a relaxing place to enjoy coffee. The atmosphere
+                makes every visit feel special.”
+            </p>
+
+            <p class="review-author">
+                <strong>Sofia L.</strong> • Afternoon visitor
+            </p>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="review">
+            <div class="review-stars">★★★★★</div>
+
+            <p class="review-text">
+                “The staff is friendly, the coffee is delicious, and
+                I always leave wanting to come back.”
+            </p>
+
+            <p class="review-author">
+                <strong>Daniel P.</strong> • Coffee lover
+            </p>
+        </div>
+
+    </div>
+
+    <button class="review-arrow right-arrow" id="nextReview">
+        ›
+    </button>
+
+</section>
+
+    <script>
+const reviews = document.querySelectorAll(".review");
+const nextButton = document.querySelector(".right-arrow");
+const previousButton = document.querySelector(".left-arrow");
+
+let current = 0;
+
+function showReview() {
+    reviews.forEach((review, index) => {
+        review.style.display = "none";
+    });
+
+    for (let i = 0; i < 3; i++) {
+        let index = current + i;
+
+        if (index < reviews.length) {
+            reviews[index].style.display = "flex";
+        }
+    }
+}
+
+nextButton.addEventListener("click", function () {
+    if (current + 3 < reviews.length) {
+        current++;
+        showReview();
+    }
+});
+
+previousButton.addEventListener("click", function () {
+    if (current > 0) {
+        current--;
+        showReview();
+    }
+});
+
+showReview();
+</script>
+
 </body>
 </html>
