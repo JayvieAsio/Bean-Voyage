@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home | Bean Voyage</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../Music/music.css">
 </head>
 <body>
   <!-- Shared navigation connects all pages in the website. -->
@@ -15,35 +16,45 @@
       <a class="active" href="index2.html">Home</a>
       <a href="../AboutUs/index4.html">About Us</a>
       <a href="../Feedback/index3.html">Reviews</a>
+      <a href="../Contact/index.html">Contact</a>
+      <a href="../Order/index.html">Order <b id="cartCount">0</b></a>
       <a href="../LoginInterface/index.html">Logout</a>
     </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
   </header>
 
   <main>
     <!-- Main welcome message for the coffee shop. -->
     <section class="hero">
+      <span class="hero-orbit hero-orbit--one" aria-hidden="true"></span><span class="hero-orbit hero-orbit--two" aria-hidden="true"></span>
       <div class="hero-copy">
-        <p class="eyebrow">Your daily cup, thoughtfully made</p>
-        <h1>Taste the world<br><em>One cup at a time.</em></h1>
-        <p>Small-batch coffee, warm pastries, and a place to slow down. Find your next favorite cup at Bean Voyage.</p>
+        <p class="eyebrow">Traditional coffee from around the world</p>
+        <h1>Meet the world<br><em>one cup at a time.</em></h1>
+        <p>Explore the stories, flavors, and traditions behind iconic coffees from different countries, all gathered in one place.</p>
         <a class="button" href="#menu">Explore the menu <span>→</span></a>
       </div>
       <!-- Temporary hero image: palitan ang URL kapag may sarili ka nang image. -->
-      <div class="hero-art" role="img" aria-label="Cup of coffee">
+      <div class="hero-art" role="img" aria-label="Freshly brewed coffee">
+        <div class="hero-art__caption"><span>01</span><strong>Roasted for the road</strong><small>Discover a slower kind of morning.</small></div>
+        <div class="hero-art__controls" aria-label="Coffee image slider controls">
+          <button class="slider-button slider-button--prev" type="button" aria-label="Previous coffee image">←</button>
+          <div class="slider-dots" role="tablist" aria-label="Choose coffee image"></div>
+          <button class="slider-button slider-button--next" type="button" aria-label="Next coffee image">→</button>
+        </div>
       </div>
     </section>
 
     <!-- Featured products and ordering controls. -->
     <section class="menu-section" id="menu">
-      <div class="section-heading"><div><p class="eyebrow">Made for the moment</p><h2>Featured coffee</h2></div><p>Freshly roasted. Carefully poured.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">A taste of every tradition</p><h2>Explore the world’s coffee</h2></div><p>Learn the culture behind every cup.</p></div>
       <div class="product-grid">
         <!-- Temporary product images: palitan ang src values kapag may sarili ka nang images. -->
-        <article class="product-card"><div class="product-image latte"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuKFnbsSEGb2bYJ05_kcl7Zg8WXUqbQ5SoiXnMCbJ5qA&s=10" alt="Honey cinnamon latte"></div><div class="product-info"><h3>Rokkoyo</h3><p>specialty artisan pour-over coffee sets (like the Rokkoyo Tansu and Kyusu) and gear (like the Rokkoyo Titan kettle) that blend this centuries-old Japanese ceramic and metal heritage with modern barista standards</p><div><strong>$5.50</strong><button class="add-button" data-product="Honey Cinnamon Latte">Add to cart</button></div></div></article>
-        <article class="product-card"><div class="product-image mocha"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5bew1m-TWnznqHt_fSI8Snnsm2ef_wEY9SwOaem3iqw&s=10" alt="Voyager mocha"></div><div class="product-info"><h3>Espresso</h3><p>a concentrated coffee beverage brewed by forcing hot water under high pressure through a compact bed of finely ground coffee beans</p><div><strong>$5.75</strong><button class="add-button" data-product="Voyager Mocha">Add to cart</button></div></div></article>
-        <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUgCboBOZFPhBi9udSk_gJo-8XY2QNQONJGZWtZhPn7g&s=10" alt="Coastal cold brew"></div><div class="product-info"><h3>Turkish Coffee</h3><p>a traditional method of brewing unfiltered coffee by boiling ultra-finely ground coffee beans with water and sugar in a small long-handled pot called a cezve or ibrik</p><div><strong>$4.95</strong><button class="add-button" data-product="Coastal Cold Brew">Add to cart</button></div></div></article>
-         <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6xkTmxK3voC2etsgaDFAllz8vbm1_4AjfXOJqh7MAVA&s=10" alt="Coastal cold brew"></div><div class="product-info"><h3>Cafe au Lait</h3><p>a traditional French coffee drink made by mixing equal parts strong brewed coffee and heated or steamed milk, typically without foam on top.</p><div><strong>$4.95</strong><button class="add-button" data-product="Coastal Cold Brew">Add to cart</button></div></div></article>
-          <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnG-8OjBOBZb9JZUkghb_R12dLxPNzcJ2GUNrL-jMq3w&s=10" alt="Coastal cold brew"></div><div class="product-info"><h3>Ethiopian Coffee</h3><p> 100% Arabica coffee produced from heirloom and wild varietals native to the high-altitude forests and farms of Ethiopia.</p><div><strong>$4.95</strong><button class="add-button" data-product="Coastal Cold Brew">Add to cart</button></div></div></article>
-           <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq0lo8uXgxFgh_tWcN9m-NW_BrKRBbr4-GPtcsqbTnTQ&s=10" alt="Coastal cold brew"></div><div class="product-info"><h3>Greek Coffee</h3><p> A traditional hot coffee beverage from Greece made from ultra-fine coffee powder that remains in the cup.</p><div><strong>$4.95</strong><button class="add-button" data-product="Coastal Cold Brew">Add to cart</button></div></div></article>
+        <article class="product-card"><div class="product-image latte"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuKFnbsSEGb2bYJ05_kcl7Zg8WXUqbQ5SoiXnMCbJ5qA&s=10" alt="Honey cinnamon latte"></div><div class="product-info"><h3>Honey Cinnamon Latte</h3><p>Espresso, silky milk, honey, and a gentle cinnamon finish.</p><div><strong>$5.50</strong><button class="add-button" data-product="Honey Cinnamon Latte" data-price="5.50">Checkout this cup <span>→</span></button></div></div></article>
+        <article class="product-card"><div class="product-image mocha"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5bew1m-TWnznqHt_fSI8Snnsm2ef_wEY9SwOaem3iqw&s=10" alt="Espresso"></div><div class="product-info"><h3>Espresso</h3><p>A concentrated, high-pressure brewed coffee with a deep finish.</p><div><strong>$5.75</strong><button class="add-button" data-product="Espresso" data-price="5.75">Checkout this cup <span>→</span></button></div></div></article>
+        <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUgCboBOZFPhBi9udSk_gJo-8XY2QNQONJGZWtZhPn7g&s=10" alt="Turkish coffee"></div><div class="product-info"><h3>Turkish Coffee</h3><p>Unfiltered, finely ground coffee brewed traditionally in a cezve.</p><div><strong>$4.95</strong><button class="add-button" data-product="Turkish Coffee" data-price="4.95">Checkout this cup <span>→</span></button></div></div></article>
+         <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6xkTmxK3voC2etsgaDFAllz8vbm1_4AjfXOJqh7MAVA&s=10" alt="Cafe au lait"></div><div class="product-info"><h3>Cafe au Lait</h3><p>Strong brewed coffee balanced with warm steamed milk.</p><div><strong>$4.95</strong><button class="add-button" data-product="Cafe au Lait" data-price="4.95">Checkout this cup <span>→</span></button></div></div></article>
+          <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnG-8OjBOBZb9JZUkghb_R12dLxPNzcJ2GUNrL-jMq3w&s=10" alt="Ethiopian coffee"></div><div class="product-info"><h3>Ethiopian Coffee</h3><p>100% Arabica with a bright high-altitude character.</p><div><strong>$4.95</strong><button class="add-button" data-product="Ethiopian Coffee" data-price="4.95">Checkout this cup <span>→</span></button></div></div></article>
+           <article class="product-card"><div class="product-image cold"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq0lo8uXgxFgh_tWcN9m-NW_BrKRBbr4-GPtcsqbTnTQ&s=10" alt="Greek coffee"></div><div class="product-info"><h3>Greek Coffee</h3><p>A traditional unfiltered coffee with a rich, lingering finish.</p><div><strong>$4.95</strong><button class="add-button" data-product="Greek Coffee" data-price="4.95">Checkout this cup <span>→</span></button></div></div></article>
          
 
       </div>
@@ -52,5 +63,6 @@
   </main>
   <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
   <script src="script.js"></script>
+  <script src="../Music/music.js"></script>
 </body>
 </html>

@@ -11,15 +11,18 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <!-- Connects the page to the external CSS file. -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../Music/music.css">
 </head>
 <body>
   <!-- Main wrapper for the branding area and login form. -->
   <main class="login-page">
     <!-- Left panel that shows the coffee shop branding. -->
     <section class="brand-panel" aria-label="Bean Voyage Coffee">
+      <span class="ambient-bean ambient-bean--one" aria-hidden="true"></span><span class="ambient-bean ambient-bean--two" aria-hidden="true"></span><span class="ambient-bean ambient-bean--three" aria-hidden="true"></span>
       <div class="brand-panel__topline"><span class="bean-icon" aria-hidden="true">●</span> Small batch coffee house</div>
       <div class="brand-panel__content">
         <div class="brand-mark" aria-hidden="true"><span>B</span><i></i><span>V</span></div>
+        <div class="coffee-steam" aria-hidden="true"><i></i><i></i><i></i><span class="cup">☕</span></div>
         <p class="eyebrow">Welcome back</p>
         <h1>Good coffee<br><em>starts here.</em></h1>
         <p class="brand-panel__copy">Your favorite table, your usual order, and a little more warmth in every cup.</p>
@@ -34,6 +37,7 @@
     <!-- Right panel that contains the login controls. -->
     <section class="form-panel">
       <div class="form-wrap">
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
         <div class="mobile-logo"><span class="bean-icon" aria-hidden="true">●</span> Bean Voyage</div>
         <div class="form-heading">
           <p class="eyebrow">Your daily ritual</p>
@@ -90,5 +94,6 @@
   </main>
   <!-- Loads the JavaScript after the page elements are available. -->
   <script src="script.js"></script>
+ 
 </body>
 </html>
