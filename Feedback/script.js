@@ -1,7 +1,7 @@
-// Nagpapakita ng confirmation kapag nag-click ang user sa feedback button.
-document.querySelector("#shareReview").addEventListener("click", () => {
-  document.querySelector("#feedbackStatus").textContent = "Thank you for helping Bean Voyage grow!";
-});
+const themeButton = document.querySelector('.theme-toggle');
+document.querySelectorAll('a[href]').forEach((link) => { link.addEventListener('click', (event) => { const target = link.getAttribute('href'); if (!target || target.startsWith('#') || link.target === '_blank') return; event.preventDefault(); document.body.classList.add('is-leaving'); window.setTimeout(() => { window.location.href = target; }, 280); }); });
+document.body.classList.toggle('dark', localStorage.getItem('bean-theme') === 'dark');
+themeButton.addEventListener('click', () => { const dark = document.body.classList.toggle('dark'); localStorage.setItem('bean-theme', dark ? 'dark' : 'light'); themeButton.textContent = dark ? '☀' : '☾'; });
 
 
 const reviews = document.querySelectorAll(".review");

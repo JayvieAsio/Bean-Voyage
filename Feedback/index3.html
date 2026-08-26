@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reviews | Bean Voyage</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Music/music.css">
 </head>
 <body>
     <!-- Shared navigation connects all pages in the website. -->
@@ -15,18 +16,16 @@
             <a href="../HomeInterface/index2.html">Home</a>
             <a href="../AboutUs/index4.html">About Us</a>
             <a class="active" href="index3.html">Reviews</a>
+            <a href="../Contact/index.html">Contact</a>
+            <a href="../Order/index.html">Order</a>
             <a href="../LoginInterface/index.html">Logout</a>
         </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
     </header>
     <main>
         <!-- Customer feedback section. -->
-        <section class="reviews-hero"><p class="eyebrow">Words from our table</p><h1>Good coffee is<br><em>better together.</em></h1><p>See what fellow travelers are saying about their Bean Voyage moments.</p></section>
+        <section class="reviews-hero"><p class="eyebrow">Words from our table</p><h1>Every tradition<br><em>has a story.</em></h1><p>See what fellow coffee explorers are saying about discovering traditional coffees from around the world.</p></section>
         
-    </main>
-    <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
-   <script src="javascript.js"></script>"
-
-
     <section class="reviews-section">
 
     <button class="review-arrow left-arrow" id="prevReview">
@@ -114,43 +113,9 @@
 
 </section>
 
-    <script>
-const reviews = document.querySelectorAll(".review");
-const nextButton = document.querySelector(".right-arrow");
-const previousButton = document.querySelector(".left-arrow");
-
-let current = 0;
-
-function showReview() {
-    reviews.forEach((review, index) => {
-        review.style.display = "none";
-    });
-
-    for (let i = 0; i < 3; i++) {
-        let index = current + i;
-
-        if (index < reviews.length) {
-            reviews[index].style.display = "flex";
-        }
-    }
-}
-
-nextButton.addEventListener("click", function () {
-    if (current + 3 < reviews.length) {
-        current++;
-        showReview();
-    }
-});
-
-previousButton.addEventListener("click", function () {
-    if (current > 0) {
-        current--;
-        showReview();
-    }
-});
-
-showReview();
-</script>
-
+    </main>
+    <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
+    <script src="script.js"></script>
+    <script src="../Music/music.js"></script>
 </body>
 </html>

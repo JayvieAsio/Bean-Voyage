@@ -4,24 +4,43 @@
 
 :root {
   --espresso: #0b0b0b;
-  --coffee: #8b0d1a;
-  --copper: #8b0d1a;
+  --coffee: #741b2a;
+  --copper: #c79a43;
   --cream: #f5f2ed;
   --paper: #f5f2ed;
-  --muted: #8b0d1a;
+  --muted: #d3c5b4;
   --line: #0b0b0b;
   --error: #8b0d1a;
   --light: #f5f2ed;
 }
 
 /* Pangunahing kulay at typography ng buong page. */
+body::before,body::after { position:fixed; z-index:-1; inset:-20%; content:""; pointer-events:none; }
+body::before { background:radial-gradient(circle at 18% 20%, color-mix(in srgb,var(--coffee) 14%,transparent) 0 7%,transparent 24%),radial-gradient(circle at 82% 72%, color-mix(in srgb,var(--copper) 16%,transparent) 0 8%,transparent 27%); animation:ambient-drift 18s ease-in-out infinite alternate; }
+body::after { opacity:.16; background-image:linear-gradient(115deg,transparent 0 46%,var(--copper) 46.2% 46.5%,transparent 46.7% 100%),linear-gradient(25deg,transparent 0 48%,var(--coffee) 48.2% 48.5%,transparent 48.7% 100%); background-size:170px 170px,230px 230px; animation:ambient-grid 24s linear infinite; }
+@keyframes ambient-drift { 0% { transform:translate3d(-3%,-2%,0) scale(1); } 50% { transform:translate3d(2%,3%,0) scale(1.08); } 100% { transform:translate3d(5%,-1%,0) scale(1.02); } }
+@keyframes ambient-grid { from { transform:rotate(0) translate3d(0,0,0); } to { transform:rotate(8deg) translate3d(4%,2%,0); } }
+body { position:relative; isolation:isolate; overflow-x:hidden; }
 body {
   margin: 0;
   min-width: 320px;
   color: var(--espresso);
   background-color: var(--cream);
   font-family: "DM Sans", sans-serif;
+  animation: page-enter 650ms cubic-bezier(.22,1,.36,1) both;
 }
+body.dark { --espresso:#fffaf3; --cream:#171113; --paper:#201719; --muted:#d3c5b4; --line:#49383a; --light:#fffaf3; --error:#f08a8f; }
+body.dark a,
+body.dark .form-status,
+body.dark .social-button strong,
+body.dark .mobile-logo,
+body.dark .icon-button:hover { color: var(--copper); }
+.theme-toggle { display:block; margin-left:auto; border:1px solid var(--copper); border-radius:50%; width:34px; height:34px; color:var(--espresso); background:transparent; cursor:pointer; }
+html { scroll-behavior:smooth; }
+body.is-leaving { animation:page-leave 280ms ease both; pointer-events:none; }
+@keyframes page-enter { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+@keyframes page-leave { from { opacity:1; } to { opacity:0; transform:translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration:0.01ms !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; } }
 
 /* Dalawang-column layout sa desktop. */
 .login-page {
@@ -39,7 +58,7 @@ body {
   padding: 42px clamp(42px, 6vw, 96px) 34px;
   overflow: hidden;
   color: var(--light);
-  background: var(--espresso);
+  background: radial-gradient(circle at 25% 75%, #741b2a 0, transparent 32%), linear-gradient(145deg, #120d0d 0%, #241316 55%, #120d0d 100%);
   isolation: isolate;
 }
 
@@ -65,7 +84,9 @@ body {
   height: 360px;
   right: -190px;
   bottom: 15%;
+  animation: ring-drift 12s ease-in-out infinite alternate;
 }
+.ambient-bean { position:absolute; width:12px; height:20px; border:1px solid var(--copper); border-radius:50%; opacity:.55; transform:rotate(35deg); animation:bean-drift 8s ease-in-out infinite; } .ambient-bean::after { position:absolute; top:2px; left:5px; width:1px; height:14px; background:var(--copper); content:""; transform:rotate(-25deg); } .ambient-bean--one{top:19%;right:15%;animation-delay:-1s}.ambient-bean--two{top:56%;left:13%;animation-delay:-4s;transform:rotate(-35deg) scale(.7)}.ambient-bean--three{bottom:18%;right:28%;animation-delay:-6s;transform:rotate(60deg) scale(.55)}
 
 .brand-panel__topline,
 .brand-panel__footer,
@@ -85,6 +106,12 @@ body {
     margin: auto 0;
   }
 
+  .coffee-steam { position:relative; width:150px; height:86px; margin:0 0 28px 4px; color:var(--copper); }
+  .coffee-steam i { position:absolute; bottom:25px; width:2px; height:48px; border-radius:50%; background:currentColor; opacity:0; animation:steam 3.2s ease-in-out infinite; }
+  .coffee-steam i:nth-child(1) { left:38px; animation-delay:0s; } .coffee-steam i:nth-child(2) { left:66px; animation-delay:.8s; } .coffee-steam i:nth-child(3) { left:94px; animation-delay:1.6s; }
+  .coffee-steam .cup { position:absolute; bottom:0; left:46px; font-size:2rem; filter:grayscale(1) sepia(1) saturate(4); }
+  @keyframes steam { 0% { transform:translateY(18px) scaleX(1); opacity:0; } 35% { opacity:.8; } 100% { transform:translateY(-24px) scaleX(2.2); opacity:0; } }
+
   .brand-mark {
     display: flex;
     align-items: center;
@@ -93,6 +120,7 @@ body {
     font-family: Georgia, serif;
     font-size: 1.7rem;
     letter-spacing: 0.12em;
+    animation: mark-glow 4s ease-in-out infinite;
   }
 
   .brand-mark i {
@@ -125,7 +153,7 @@ body {
   }
 
   h1 em {
-    color: #8b0d1a;
+    color: var(--copper);
     font-style: italic;
   }
 
@@ -173,11 +201,22 @@ body {
     display: grid;
     place-items: center;
     padding: 50px clamp(36px, 8vw, 150px);
-    background: var(--paper);
+    position:relative;
+    background:var(--paper);
+    overflow:hidden;
   }
 
+  .form-panel::before { position:absolute; top:-130px; right:-90px; width:300px; height:300px; border:1px solid var(--copper); border-radius:50%; content:""; opacity:.45; }
+  .form-panel::after { position:absolute; right:10%; bottom:-100px; width:190px; height:190px; border:1px solid var(--coffee); border-radius:50%; content:""; opacity:.25; }
+
   .form-wrap {
+    position:relative;
+    z-index:1;
     width: min(100%, 440px);
+    padding:38px;
+    border:1px solid color-mix(in srgb, var(--copper) 45%, transparent);
+    background:color-mix(in srgb, var(--paper) 86%, transparent);
+    box-shadow:0 22px 70px rgba(18,13,13,.12);
   }
 
   .mobile-logo {
@@ -187,6 +226,7 @@ body {
 
   .form-heading {
     margin-bottom: 38px;
+    animation: content-rise .8s .12s both;
   }
 
   .form-heading h2 {
@@ -202,6 +242,7 @@ body {
 
   .field-group {
     margin-bottom: 24px;
+    animation: content-rise .7s .22s both;
   }
 
   label,
@@ -334,7 +375,10 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: background 160ms ease, transform 160ms ease;
+    position:relative;
+    overflow:hidden;
   }
+  .submit-button::after { position:absolute; top:0; left:-80%; width:45%; height:100%; content:""; background:linear-gradient(100deg,transparent,rgba(255,255,255,.25),transparent); transform:skewX(-20deg); animation:button-shine 4.5s 1.2s infinite; }
 
   .submit-button:hover {
     background: var(--espresso);
@@ -438,6 +482,7 @@ body {
 .signup-text a { margin-left: 3px; }
 .legal { margin: 57px 0 0; color: var(--muted); font-size: 0.62rem; line-height: 1.6; text-align: center; }
 .legal a { color: var(--coffee); }
+@keyframes bean-drift { 0%,100%{margin-top:0;opacity:.25} 50%{margin-top:-22px;opacity:.8} } @keyframes ring-drift { from{transform:translate(0,0) rotate(0)} to{transform:translate(-18px,-12px) rotate(8deg)} } @keyframes mark-glow { 0%,100%{text-shadow:0 0 0 transparent} 50%{text-shadow:0 0 18px rgba(199,154,67,.35)} } @keyframes content-rise { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:none} } @keyframes button-shine { 0%,72%,100%{left:-80%} 84%{left:130%} }
 
 /* Inililipat sa single-column layout kapag maliit ang screen. */
 @media (max-width: 760px) {
