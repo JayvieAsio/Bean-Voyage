@@ -1,3 +1,4 @@
+document.querySelectorAll('a[href]').forEach((link) => { link.addEventListener('click', (event) => { const target = link.getAttribute('href'); if (!target || target.startsWith('#') || link.target === '_blank') return; event.preventDefault(); document.body.classList.add('is-leaving'); window.setTimeout(() => { window.location.href = target; }, 280); }); });
 // Kinukuha ang mga HTML elements na gagamitin ng JavaScript.
 const loginForm = document.querySelector("#loginForm");
 const emailInput = document.querySelector("#email");
@@ -7,7 +8,6 @@ const passwordError = document.querySelector("#passwordError");
 const formStatus = document.querySelector("#formStatus");
 const togglePassword = document.querySelector("#togglePassword");
 const themeButton = document.querySelector(".theme-toggle");
-document.querySelectorAll('a[href]').forEach((link) => { link.addEventListener('click', (event) => { const target = link.getAttribute('href'); if (!target || target.startsWith('#')) return; event.preventDefault(); document.body.classList.add('is-leaving'); window.setTimeout(() => { window.location.href = target; }, 280); }); });
 document.body.classList.toggle("dark", localStorage.getItem("bean-theme") === "dark");
 themeButton.textContent = document.body.classList.contains("dark") ? "☀" : "☾";
 themeButton.addEventListener("click", () => { const dark = document.body.classList.toggle("dark"); localStorage.setItem("bean-theme", dark ? "dark" : "light"); themeButton.textContent = dark ? "☀" : "☾"; });

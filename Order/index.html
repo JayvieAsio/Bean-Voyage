@@ -1,7 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Order | Bean Voyage</title><link rel="stylesheet" href="style.css"><style>html{scroll-behavior:smooth}body{animation:page-enter 650ms cubic-bezier(.22,1,.36,1) both}body.is-leaving{animation:page-leave 280ms ease both}.order-heading{animation:section-rise .8s both}.checkout{box-shadow:18px 18px 0 var(--maroon);animation:section-rise .8s .15s both}.order-item{transition:padding-left .3s,border-color .3s}.order-item:hover{padding-left:10px;border-color:var(--gold)}.address-row{display:grid;grid-template-columns:1.4fr .8fr;gap:12px}.checkout label span{color:var(--muted);font-weight:normal}.checkout input,.checkout select,.checkout textarea{transition:border-color .25s,box-shadow .25s}.checkout input:focus,.checkout select:focus,.checkout textarea:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--gold) 22%,transparent)}.checkout select{cursor:pointer}.checkout .button{transition:transform .25s,background .25s,color .25s}.checkout .button:hover{transform:translateY(-3px)}@media(max-width:700px){.address-row{grid-template-columns:1fr}}@keyframes page-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes page-leave{from{opacity:1}to{opacity:0;transform:translateY(-10px)}}@keyframes section-rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}</style></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order | Bean Voyage</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../Music/music.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .music-player { top: 18px !important; right: 20px !important; bottom: auto !important; }
+    body.dark { color: #fffaf3; background: #171113; }
+    body.dark .order-heading, body.dark .order-layout { color: #fffaf3; }
+    body.dark .order-heading > p:last-child, body.dark .order-item p, body.dark .empty, body.dark footer { color: #d3c5b4; }
+    body.dark h1, body.dark h2, body.dark h3, body.dark label, body.dark .order-item strong, body.dark .total { color: #fffaf3; }
+    body.dark .checkout { color: #fffaf3; background: #201719; border-color: #c79a43; }
+    body.dark input, body.dark select, body.dark textarea { color: #fffaf3; background: #2a1d1f; border-color: #594347; }
+    body.dark input::placeholder, body.dark textarea::placeholder { color: #b9a9a0; }
+    body.dark select option { color: #241815; background: #fffaf3; }
+    body.dark .payment-methods { color: #fffaf3; background: #2a1d1f; border-color: #594347; }
+    body.dark .payment-option { color: #fffaf3; border-color: #594347; }
+    body.dark .payment-option:hover { background: #38282a; }
+    body.dark .payment-option.is-selected { background: #402b28; }
+    body.dark .payment-option--coinbase strong small { color: #d3c5b4; }
+    body.dark .coinbase-message { background: #24191b; border-color: #594347; }
+    body.dark .payment-brands b { background: #fffaf3; }
+    body.dark .music-player { color: #fffaf3; background: #201719; }
+    body.dark .music-info strong, body.dark .music-player button { color: #fffaf3; }
+    body { animation: page-enter 180ms cubic-bezier(.22,1,.36,1) both; }
+    body.is-leaving { animation: none; }
+    .order-heading { animation: section-rise .2s both; }
+    .checkout { animation: section-rise .2s both; }
+    .order-item { transition: padding-left .2s, border-color .2s; }
+    .order-item:hover { padding-left: 6px; border-color: var(--gold); }
+    .address-row { display: grid; grid-template-columns: 1.4fr .8fr; gap: 12px; }
+    .checkout label span { color: var(--muted); font-weight: normal; }
+    .checkout select { cursor: pointer; }
+    @media (max-width: 700px) { .address-row { grid-template-columns: 1fr; } .music-player { top: 12px !important; right: 12px !important; bottom: auto !important; } }
+    @keyframes page-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+    @keyframes section-rise { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
 <body>
-  <header class="site-header"><a class="logo" href="../HomeInterface/index2.html">Bean <span>Voyage</span></a><nav><a href="../HomeInterface/index2.html">Home</a><a href="../AboutUs/index4.html">About Us</a><a href="../Feedback/index3.html">Reviews</a><a href="../Contact/index.html">Contact</a><a class="active" href="index.html">Order</a></nav><button class="theme-toggle" type="button">☾</button></header>
-  <main><section class="order-heading"><p class="eyebrow">Your table, your way</p><h1>Build your<br><em>perfect cup.</em></h1><p>Choose the details, then send your order to the bar.</p></section><section class="order-layout"><div><div id="orderItems"></div><p class="empty" id="emptyMessage">Your cart is waiting for something delicious. <a href="../HomeInterface/index2.html">Browse the menu</a>.</p></div><form class="checkout" id="checkoutForm"><h2>Order details</h2><label for="customerName">Name</label><input id="customerName" required placeholder="Your name"><label for="address">Delivery address</label><input id="address" required autocomplete="street-address" placeholder="Street, building, or unit"><div class="address-row"><div><label for="city">City</label><input id="city" required autocomplete="address-level2" placeholder="Your city"></div><div><label for="postalCode">Postal code</label><input id="postalCode" required autocomplete="postal-code" inputmode="numeric" placeholder="Postal code"></div></div><label for="pickup">Pickup time</label><select id="pickup"><option>As soon as possible</option><option>In 15 minutes</option><option>In 30 minutes</option></select><label for="paymentMethod">Payment method</label><select id="paymentMethod" required><option value="" selected disabled>Choose payment</option><option>Cash on pickup</option><option>GCash</option><option>Debit/Credit card</option></select><label for="paymentReference">Payment note <span>(optional)</span></label><input id="paymentReference" placeholder="GCash reference or card last 4 digits"><label for="notes">Notes for the bar</label><textarea id="notes" rows="3" placeholder="Extra details..."></textarea><div class="total"><span>Total</span><strong id="totalAmount">$0.00</strong></div><button class="button" type="submit">Place order <span>→</span></button><p id="orderStatus" role="status"></p></form></section></main><footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer><script src="script.js"></script>
-</body></html>
+  <style>body.dark { --paper: #201719; --ink: #fffaf3; }</style>
+  <header class="site-header">
+    <a class="logo" href="../HomeInterface/index2.html">Bean <span>Voyage</span></a>
+    <nav aria-label="Main navigation">
+      <a href="../HomeInterface/index2.html">Home</a>
+      <a href="../AboutUs/index4.html">About Us</a>
+      <a href="../Feedback/index3.html">Reviews</a>
+      <a href="../Contact/index.html">Contact</a>
+      <a class="active" href="index.html">Order</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
+  </header>
+
+  <main>
+    <section class="order-heading">
+      <p class="eyebrow">Your table, your way</p>
+      <h1>Build your<br><em>perfect cup.</em></h1>
+      <p>Choose the details, then send your order to the bar.</p>
+    </section>
+    <section class="order-layout">
+      <div>
+        <div id="orderItems"></div>
+        <p class="empty" id="emptyMessage">Your cart is waiting for something delicious. <a href="../HomeInterface/index2.html">Browse the menu</a>.</p>
+      </div>
+      <form class="checkout" id="checkoutForm">
+        <h2>Order details</h2>
+        <label for="customerName">Name</label>
+        <input id="customerName" required placeholder="Your name">
+        <label for="address">Delivery address</label>
+        <input id="address" required autocomplete="street-address" placeholder="Street, building, or unit">
+        <div class="address-row">
+          <div><label for="city">City</label><input id="city" required autocomplete="address-level2" placeholder="Your city"></div>
+          <div><label for="postalCode">Postal code</label><input id="postalCode" required autocomplete="postal-code" inputmode="numeric" placeholder="Postal code"></div>
+        </div>
+        <label for="pickup">Pickup time</label>
+        <select id="pickup"><option>As soon as possible</option><option>In 15 minutes</option><option>In 30 minutes</option></select>
+
+        <div class="payment-heading">
+          <h3>Payment</h3>
+          <p>All transactions are secure and encrypted.</p>
+        </div>
+        <input class="payment-value" id="paymentMethod" type="hidden" value="Coinbase Commerce" required>
+        <div class="payment-methods" role="radiogroup" aria-label="Payment method">
+          <label class="payment-option">
+            <input type="radio" name="paymentChoice" value="Credit card">
+            <span class="payment-radio" aria-hidden="true"></span>
+            <strong>Credit card</strong>
+            <span class="payment-brands"><b>VISA</b><b class="brand-mastercard">●●</b><b class="brand-amex">AMEX</b><small>and more...</small></span>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentChoice" value="PayPal">
+            <span class="payment-radio" aria-hidden="true"></span>
+            <strong class="paypal-label">P PayPal</strong>
+          </label>
+          <label class="payment-option">
+            <input type="radio" name="paymentChoice" value="Klarna">
+            <span class="payment-radio" aria-hidden="true"></span>
+            <strong>Buy now, pay later with Klarna</strong>
+            <span class="klarna-badge">Klarna.</span>
+          </label>
+          <label class="payment-option payment-option--coinbase is-selected">
+            <input type="radio" name="paymentChoice" value="Coinbase Commerce" checked>
+            <span class="payment-radio" aria-hidden="true"></span>
+            <strong><span class="coinbase-dot">•</span> coinbase <small>COMMERCE</small></strong>
+            <span class="payment-brands crypto-brands"><b>♦</b><b>₿</b><b>Ð</b><b>Ł</b><small>and more...</small></span>
+          </label>
+          <div class="coinbase-message" aria-live="polite">
+            <div class="browser-arrow" aria-hidden="true"></div>
+            <p>After clicking “Complete order”, you will be redirected to Coinbase Commerce to complete your purchase securely.</p>
+          </div>
+        </div>
+
+        <label for="paymentReference">Payment note <span>(optional)</span></label>
+        <input id="paymentReference" placeholder="GCash reference or card last 4 digits">
+        <label for="notes">Notes for the bar</label>
+        <textarea id="notes" rows="3" placeholder="Extra details..."></textarea>
+        <div class="total"><span>Total</span><strong id="totalAmount">$0.00</strong></div>
+        <button class="button" type="submit">Place order <span>→</span></button>
+        <p id="orderStatus" role="status"></p>
+      </form>
+    </section>
+  </main>
+  <footer><span>Bean Voyage</span><span>Good coffee, wherever you are.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>

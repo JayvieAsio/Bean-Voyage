@@ -1,8 +1,9 @@
+document.querySelectorAll('input[name="paymentChoice"]').forEach((choice) => { choice.addEventListener('change', () => { document.querySelector('#paymentMethod').value = choice.value; document.querySelectorAll('.payment-option').forEach((option) => option.classList.toggle('is-selected', option.contains(choice) && choice.checked)); }); });
+document.querySelectorAll('a[href]').forEach((link) => { link.addEventListener('click', (event) => { const target = link.getAttribute('href'); if (!target || target.startsWith('#') || link.target === '_blank') return; event.preventDefault(); document.body.classList.add('is-leaving'); window.setTimeout(() => { window.location.href = target; }, 280); }); });
 const musicScript = document.createElement('script');
 musicScript.src = '../Music/music.js';
 document.head.appendChild(musicScript);
 const themeButton = document.querySelector('.theme-toggle');
-document.querySelectorAll('a[href]').forEach((link) => { link.addEventListener('click', (event) => { const target = link.getAttribute('href'); if (!target || target.startsWith('#') || link.target === '_blank') return; event.preventDefault(); document.body.classList.add('is-leaving'); window.setTimeout(() => { window.location.href = target; }, 280); }); });
 document.body.classList.toggle('dark', localStorage.getItem('bean-theme') === 'dark');
 themeButton.addEventListener('click', () => { const dark = document.body.classList.toggle('dark'); localStorage.setItem('bean-theme', dark ? 'dark' : 'light'); themeButton.textContent = dark ? '☀' : '☾'; });
 let cart = JSON.parse(localStorage.getItem('bean-cart') || '[]');

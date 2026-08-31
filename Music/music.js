@@ -1,7 +1,7 @@
 (() => {
   const tracks = [
-    { name: 'NIKI - lowkey (Lyrics)', file: 'NIKI - lowkey (Lyrics).mp3' },
-    { name: 'NIKI - Backburner (Official Lyric Video)', file: 'NIKI -  Backburner (Official Lyric Video).mp3' }
+    { name: 'Laufey - Promise (Lyrics)', file: '@laufey - Promise (Lyrics).mp3' },
+    { name: 'Laufey - Too Little, Too Late', file: 'Too Little, Too Late.mp3' }
   ];
   const savedTrack = Number(sessionStorage.getItem('bean-music-track')) || 0;
   const savedTime = Number(sessionStorage.getItem('bean-music-time')) || 0;
